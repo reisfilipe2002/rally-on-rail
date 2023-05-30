@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :cars, dependent: :destroy
   has_many :cars, through: :orders
+  has_one_attached :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :first_name, presence: true, uniqueness: true, length: { minimum: 2 }

@@ -10,7 +10,7 @@
 
     <%= f.input :last_name,
                 required: true,
-                autofocus: true%>   
+                autofocus: true%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -22,7 +22,11 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file %>
+
   </div>
+
+
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
