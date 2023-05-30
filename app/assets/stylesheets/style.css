@@ -1,0 +1,57 @@
+/* Reset CSS para limpar estilos padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para o corpo do site */
+body {
+  background-color: #f2f2f2; /*Cinza claro*/
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para o cabeçalho */
+header {
+  background-color: #000; /* Preto */
+  color: #fff; /* Branco */
+  padding: 20px;
+  margin-top: auto;
+  border-radius: 5px;
+
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+/* Estilo para a seção principal de conteúdo */
+section {
+  background-color: #fff; /* Branco */
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para os links */
+a {
+  color: #000; /* Preto */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para os botões */
+button {
+  background-color: #000; /* Preto */
+  color: #fff; /* Branco */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #333; /* Cinza escuro */
+}
