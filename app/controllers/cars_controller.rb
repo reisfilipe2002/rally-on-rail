@@ -1,11 +1,12 @@
 class CarsController < ApplicationController
   def index
     @cars = Car.all
+    @cars = policy_scope(Car)
   end
 
   def show
     @car = Car.find(params[:id])
-    @order = Order.new
+    authorize @car
   end
 
   def new
@@ -33,8 +34,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     authorize @car
     @car.update(cars_params)
-    redirect_to car_path(@car)
-    if @car.update(car_params)
+    if @car.update(cars_params)
       redirect_to @car, notice: 'Car updated successfully.'
     else
       render :edit
@@ -45,7 +45,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     authorize @car
     @car.destroy
-    redirect_to cars_path
+    redirect_to cars_path(current_user)
   end
 
   private
