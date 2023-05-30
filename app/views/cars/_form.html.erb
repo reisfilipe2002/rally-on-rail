@@ -1,0 +1,29 @@
+<h1>New Car</h1>
+
+<%= form_for car do |f| %>
+  <div class="field">
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id, "User" %>
+    <%= f.collection_select :user_id, User.all, :id, :name, prompt: "Select User" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Car" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Cars', cars_path %>
