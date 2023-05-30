@@ -1,5 +1,5 @@
 
-<%= form_for car do |f| %>
+<%= simple_form_for car do |f| %>
   <div class="field">
     <%= f.label :brand %>
     <%= f.text_field :brand %>
@@ -16,8 +16,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id, "User" %>
-    <%= f.collection_select :user_id, User.all, :id, :first_name, prompt: "Select User" %>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="actions">

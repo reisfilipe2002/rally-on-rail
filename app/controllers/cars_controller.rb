@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @cars = Car.all
     @cars = policy_scope(Car)
@@ -51,6 +53,7 @@ class CarsController < ApplicationController
   private
 
   def cars_params
-    params.require(:car).permit(:brand, :model, :price, :user_id)
+    params.require(:car).permit(:brand, :model, :price, :user_id, :photo)
   end
+
 end
