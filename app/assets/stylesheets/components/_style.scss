@@ -1,0 +1,61 @@
+/* Estilos do cabeçalho */
+.header {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.header h1 {
+  font-size: 36px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 18px;
+  color: #666666;
+}
+
+/* Estilos dos cards de listagem */
+.listing-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.listing-card h2 {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.listing-card p {
+  font-size: 16px;
+  color: #666666;
+}
+
+.listing-card img {
+  width: 60%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.img {
+  width: 150px; /* Substitua pelo tamanho desejado */
+  height: 150px; /* Substitua pelo tamanho desejado */
+}
+
+/* Estilos do rodapé */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
