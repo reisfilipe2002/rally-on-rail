@@ -34,6 +34,11 @@ class CarsController < ApplicationController
     authorize @car
     @car.update(cars_params)
     redirect_to car_path(@car)
+    if @car.update(car_params)
+      redirect_to @car, notice: 'Car updated successfully.'
+    else
+      render :edit
+    end
   end
 
   def destroy
