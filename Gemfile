@@ -48,8 +48,15 @@ gem "sassc-rails"
 #Gem for authentication
 gem "devise"
 
-#
+#Gem for populating database
 gem "faker"
+
+#Gem for Authorization
+gem "pundit"
+
+#Gem for hosting images
+gem "cloudinary"
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
