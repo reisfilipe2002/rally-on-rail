@@ -2,8 +2,12 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cars = Car.all
     @cars = policy_scope(Car)
+  end
+
+  def my_cars
+    @cars = Car.where(user_id: current_user.id)
+    authorize @cars
   end
 
   def show

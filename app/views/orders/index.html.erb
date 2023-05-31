@@ -1,0 +1,13 @@
+<div class="container">
+<h1 class="text-center">My orders</h1>
+</div>
+  <div class="container">
+  <% @orders.each do |order| %>
+    <div class="listing-card">
+      <h2><%= order.car.brand %></h2>
+      <%= cl_image_tag order.car.photo.key  %>
+      <p><%= order.car.model %></p>
+      <p><%= order.car.price %></p>
+      <p><%= order.car.user.first_name %></p>
+    <% end %>
+  </div>
