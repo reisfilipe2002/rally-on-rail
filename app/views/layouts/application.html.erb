@@ -11,8 +11,13 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="d-flex flex-column" style="height:100%">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <div style="flex-grow: 1">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>

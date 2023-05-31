@@ -11,13 +11,17 @@ class CarPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def my_cars?
+    true
+  end
+
   def show?
     true
   end
 
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(sold: false)
     end
   end
 end

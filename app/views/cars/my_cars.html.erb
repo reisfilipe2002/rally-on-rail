@@ -1,0 +1,20 @@
+<div class="container">
+<h1 class="text-center">My cars</h1>
+</div>
+
+ <div class="container">
+  <% @cars.each do |car| %>
+    <div class="listing-card">
+      <h2><%= car.brand %></h2>
+      <%= cl_image_tag car.photo.key  %>
+      <p><%= car.model %></p>
+      <p><%= car.price %></p>
+      <p><%= car.user.first_name %></p>
+      <% if car.sold==true %>
+        <p>Sold</p>
+      <% else %>
+        <p>For sale</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
