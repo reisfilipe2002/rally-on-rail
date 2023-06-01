@@ -1,20 +1,22 @@
-<div class="container">
-<h1 class="text-center">My cars</h1>
-</div>
 
- <div class="container">
+
+<h1 class="text-center p-3">My cars</h1>
+
+
+<div class="container">
   <% @cars.each do |car| %>
-    <div class="listing-card">
-      <h2><%= car.brand %></h2>
-      <%= cl_image_tag car.photo.key  %>
-      <p><%= car.model %></p>
-      <p><%= car.price %></p>
-      <p><%= car.user.first_name %></p>
-      <% if car.sold==true %>
-        <p>Sold</p>
-      <% else %>
-        <p>For sale</p>
-      <% end %>
+    <div class="card-product">
+      <%= cl_image_tag car.photo.key%>
+      <div class="card-product-infos">
+        <p><strong><i class="fa-solid fa-copyright"></i> Brand:</strong> <%= car.brand %></p>
+        <p><strong><i class="fa-solid fa-car-side"></i> Model:</strong> <%= car.model %></p>
+        <p><strong><i class="fa-solid fa-dollar-sign"></i> Price:</strong> <%= car.price %></p>
+        <% if car.sold==true %>
+        <button  class="btn btn-lg btn-success" disabled>Sold</button>
+        <% else %>
+          <button  class="btn btn-lg btn-danger" disabled>For Sale</button>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
