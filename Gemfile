@@ -57,7 +57,7 @@ gem "pundit"
 #Gem for hosting images
 gem "cloudinary"
 
-# Gem for search
+# Gemfile
 gem "pg_search"
 
 
@@ -91,6 +91,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-# Gemfile
-gem "pg_search"

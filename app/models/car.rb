@@ -1,13 +1,13 @@
+
 class Car < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_one :order
-  #pg_search_scope :global_search,
-  #against: [ :brand, :model ],
-  #associated_against: {
-   # price:
- # },
-  #using: {
-   # tsearch: { prefix: true }
-  #}
+
+  include PgSearch::Model
+  pg_search_scope :search_by_brand_and_model,
+    against: [ :brand, :model ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

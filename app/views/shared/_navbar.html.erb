@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo_rally_on_rails_transparente.png" %>
+      <%= image_tag "https://i.imgur.com/xUvEqAa.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,6 +9,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type the brand or the model of the car"
+            %>
+            <%= submit_tag "Search", name: "", class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      </div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
@@ -26,8 +38,8 @@
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Orders", "/orders", class: "dropdown-item" %>
-              <%= link_to "Sell a car", "cars/new", class: "dropdown-item" %>
+              <%= link_to "Orders", orders_path, class: "dropdown-item" %>
+              <%= link_to "Sell a car", new_car_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

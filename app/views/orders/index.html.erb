@@ -1,13 +1,12 @@
-<div class="container">
+
 <h1 class="text-center">My orders</h1>
-</div>
-  <div class="container">
+
+
   <% @orders.each do |order| %>
     <div class="listing-card">
-      <h2><%= order.car.brand %></h2>
       <%= cl_image_tag order.car.photo.key  %>
-      <p><%= order.car.model %></p>
+      <h2><%= "#{order.car.brand} #{order.car.model}" %></h2>
       <p><%= order.car.price %></p>
-      <p><%= order.car.user.first_name %></p>
+      <p class="card-text"><i class="fa-solid fa-user"></i> Owner: <%= "#{order.car.user.first_name} #{order.car.user.last_name}" %></p>
     <% end %>
-  </div>
+
