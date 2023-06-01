@@ -1,9 +1,13 @@
-<h1>Car Details</h1>
-
-<p><strong>Brand:</strong> <%= @car.brand %></p>
-<p><strong>Model:</strong> <%= @car.model %></p>
-<p><strong>Price:</strong> <%= @car.price %></p>
-<p><strong>User:</strong> <%= @car.user.first_name %></p>
+<h1 class="text-center py-3">Car Details</h1>
+<div class="container">
+ <div class="listing-card">
+    <div class="text-center">
+      <%= cl_image_tag @car.photo.key%>
+    </div>
+    <p><strong>Brand:</strong> <%= @car.brand %></p>
+    <p><strong>Model:</strong> <%= @car.model %></p>
+    <p><strong>Price:</strong> <%= @car.price %></p>
+    <p><strong>User:</strong> <%= @car.user.first_name %></p>
 
 <% if policy(@car).edit? %>
   <%= link_to 'Edit', edit_car_path(@car) %>
@@ -12,4 +16,11 @@
 <% if policy(@car).destroy? %>
   <%= button_to 'Delete', @car, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-<%= link_to 'Back to Cars', cars_path %>
+
+<%= link_to 'Buy this car', car_orders_path(@car), method: :post, class: "btn btn-secondary"%>
+</div>
+
+
+<div class="text-center">
+<%= link_to 'Back to Cars', cars_path, class: "btn btn-secondary" %>
+</div>

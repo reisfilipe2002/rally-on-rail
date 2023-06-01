@@ -1,31 +1,17 @@
+<h1 >Welcome to Rally on Rails</h1>
+<p> faster and wild </p>
 
-  <div class="header">
-    <div class="container">
-      <h1>Welcome to Rally on Rails</h1>
-      <p> faster and wild </p>
+<div class="container pb-4">
+  <% @cars.each do |car| %>
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag car.photo.key, class:"card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title text-center"><%= "#{car.brand} #{car.model}" %></h5>
+      <p class="card-text">Price: R$ <%= car.price %></p>
+      <p class="card-text">Owner: <%= "#{car.user.first_name} #{car.user.last_name}" %></p>
+      <%= link_to 'Show', car, class: "btn btn-secondary" %>
+      <%= link_to 'Buy this car', car_orders_path(car), method: :post, class: "btn btn-secondary"%>
     </div>
   </div>
-
-  <div class="container">
-  <% @cars.each do |car| %>
-    <div class="listing-card">
-      <h2><%= car.brand %></h2>
-      <%= cl_image_tag car.photo.key %>
-      <p><%= car.model %></p>
-      <p><%= car.price %></p>
-      <p><%= car.user.first_name %></p>
-    <p>
-          <%= button_to 'Show', car, class: "btn btn-secondary" %>
-    </p>
-    <p>
-          <% if policy(car).edit? %>
-               <%= button_to 'Edit', edit_car_path(car), class: "btn btn-secondary" %>
-          <% end %>
-    </p>
-      <p>
-         <%= button_to 'Buy this car', car_orders_path(car), method: :post, class: "btn btn-secondary"%>
-      </p>
-    </div>
-    <% end %>
-
+  <% end %>
   </div>

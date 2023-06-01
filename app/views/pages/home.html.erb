@@ -1,8 +1,32 @@
-
+<div class="bg-home">
  <div class="banner" style="background-image: url(<%=asset_path('banner-image.jpg')%>);">
   <div class="container">
-    <h1>Rally on rails</h1>
+    <h1 class="text-black bold">Rally on rails</h1>
     <p class="text-black">Faster and Wild</p>
     <a class="btn btn-secondary" href="/cars">See the listed Cars</a>
   </div>
+</div>
+
+<div class="container py-3 w-100">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @cars.each_with_index do |car, index| %>
+        <div class="carousel-item <%= 'active' if index.zero? %>">
+          <div class="container text-center">
+            <%= cl_image_tag(car.photo.key, class: "d-block carousel-img pb-2") %>
+            <%= link_to 'See this car details', car, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 </div>

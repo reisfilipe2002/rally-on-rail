@@ -1,5 +1,4 @@
 class CarsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @cars = policy_scope(Car)
@@ -30,8 +29,8 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(cars_params)
-    @car.user = current_user
     authorize @car
+    @car.user = current_user
     if @car.save
       redirect_to car_path(@car)
     else
