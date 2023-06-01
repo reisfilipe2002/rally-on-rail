@@ -88,3 +88,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Gemfile
+gem "pg_search"
