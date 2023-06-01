@@ -3,12 +3,9 @@ class CarsController < ApplicationController
   def index
     @cars = policy_scope(Car)
     if params[:query].present?
-      sql_subquery = <<~SQL
-        cars.brand @@ :query
-        OR cars.model @@ :query
-        OR cars.price @@ :query
-      SQL
-      @cars = @cars.joins(:brand).where(sql_subquery, query: params[:query])
+      @cars = Car.search_by_brand_and_model(params[:query]).where(sold: false)
+    else
+      @cars = Car.where(sold: false)
     end
   end
 
