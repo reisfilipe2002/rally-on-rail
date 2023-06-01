@@ -1,8 +1,15 @@
 class CarsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @cars = policy_scope(Car)
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        cars.brand @@ :query
+        OR cars.model @@ :query
+        OR cars.price @@ :query
+      SQL
+      @cars = @cars.joins(:brand).where(sql_subquery, query: params[:query])
+    end
   end
 
   def my_cars
@@ -22,8 +29,8 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(cars_params)
-    @car.user = current_user
     authorize @car
+    @car.user = current_user
     if @car.save
       redirect_to car_path(@car)
     else
