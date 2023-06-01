@@ -8,3 +8,16 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-inputs {
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 4%;
+}
+
+#remember-text {
+  display: flex;
+  align-items: center;
+}
