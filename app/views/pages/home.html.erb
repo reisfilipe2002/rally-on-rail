@@ -13,7 +13,7 @@
       <% @cars.each_with_index do |car, index| %>
         <div class="carousel-item <%= 'active' if index.zero? %>">
           <div class="container text-center">
-            <%= cl_image_tag(car.photo.key, class: "d-block carousel-img pb-2") %>
+            <%= render "shared/photo", locals:{photo: car.photo} %>
             <%= link_to 'See this car details', car, class: "btn btn-secondary" %>
           </div>
         </div>

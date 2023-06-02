@@ -1,7 +1,8 @@
 <h1 class="text-center py-3">Car Details</h1>
 <div class="container">
     <div class="card-product">
-      <%= cl_image_tag @car.photo.key%>
+
+      <%= render "shared/photo", locals:{photo: @car.photo} %>
       <div class="card-product-infos">
         <p><strong><i class="fa-solid fa-copyright"></i> Brand:</strong> <%= @car.brand %></p>
         <p><strong><i class="fa-solid fa-car-side"></i> Model:</strong> <%= @car.model %></p>

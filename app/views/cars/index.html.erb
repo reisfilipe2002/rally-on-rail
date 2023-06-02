@@ -3,7 +3,7 @@
 <div class="container pb-4">
   <% @cars.each do |car| %>
   <div class="card" style="width: 18rem;">
-    <%= cl_image_tag car.photo.key, class:"card-img-top" %>
+    <%= render "shared/photo", locals:{photo: car.photo} %>
     <div class="card-body">
       <h5 class="card-title text-center"> <%= "#{car.brand} #{car.model}" %></h5>
       <p class="card-text"><i class="fa-solid fa-dollar-sign"></i> Price: R$ <%= car.price %></p>

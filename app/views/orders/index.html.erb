@@ -4,9 +4,8 @@
 
   <% @orders.each do |order| %>
     <div class="listing-card">
-      <%= cl_image_tag order.car.photo.key  %>
+      <%= render "shared/photo", locals:{photo: order.car.photo} %>
       <h2><%= "#{order.car.brand} #{order.car.model}" %></h2>
       <p><%= order.car.price %></p>
       <p class="card-text"><i class="fa-solid fa-user"></i> Owner: <%= "#{order.car.user.first_name} #{order.car.user.last_name}" %></p>
     <% end %>
-
