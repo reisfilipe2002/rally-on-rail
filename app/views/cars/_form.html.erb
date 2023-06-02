@@ -1,28 +1,35 @@
-<div class="container">
+<div class="container text-center my-form">
 <%= simple_form_for car do |f| %>
-  <div class="field">
-    <%= f.label :brand %>
-    <%= f.text_field :brand %>
+  <div class="field form-inputs">
+    <div class="form-label">
+      <%= f.label :brand %>
+    </div>
+    <%= f.text_field :brand, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :model %>
-    <%= f.text_field :model %>
+  <div class="field form-inputs">
+    <div class="form-label">
+      <%= f.label :model %>
+    </div>
+
+    <%= f.text_field :model, class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.number_field :price %>
+  <div class="field form-inputs">
+    <div class="form-label">
+      <%= f.label :price %>
+    </div>
+    <%= f.number_field :price, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="field form-inputs">
     <%= f.input :photo, as: :file %>
   </div>
 
-  <div class="actions">
+  <div class="actions form-inputs">
     <%= f.submit "Create Car" %>
   </div>
 <% end %>
 
-<%= link_to 'Back to Cars', cars_path %>
 </div>
+<%= link_to 'Back to Cars', cars_path, class: "btn btn-secondary m-3 " %>

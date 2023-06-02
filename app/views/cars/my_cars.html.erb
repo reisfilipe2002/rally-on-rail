@@ -3,10 +3,10 @@
 <h1 class="text-center p-3">My cars</h1>
 
 
-<div class="container">
+
   <% @cars.each do |car| %>
-    <div class="card-product">
-      <%= cl_image_tag car.photo.key%>
+    <div class="card-product my-3">
+      <%= render "shared/photo", locals:{photo: car.photo} %>
       <div class="card-product-infos">
         <p><strong><i class="fa-solid fa-copyright"></i> Brand:</strong> <%= car.brand %></p>
         <p><strong><i class="fa-solid fa-car-side"></i> Model:</strong> <%= car.model %></p>
@@ -19,4 +19,4 @@
       </div>
     </div>
   <% end %>
-</div>
+<%= link_to 'Back to Cars', cars_path, class: "btn btn-secondary m-3 " %>
