@@ -1,8 +1,11 @@
 <h1 class="text-center py-3">Car Details</h1>
 <div class="container">
     <div class="card-product">
-
-      <%= render "shared/photo", locals:{photo: @car.photo} %>
+      <% if @car.photo.attached? %>
+        <%= cl_image_tag @car.photo.key, class:""  %>
+      <% else %>
+        <%= image_tag "NoImage.png", class: "card-img-top" %>
+      <% end %>
       <div class="card-product-infos">
         <p><strong><i class="fa-solid fa-copyright"></i> Brand:</strong> <%= @car.brand %></p>
         <p><strong><i class="fa-solid fa-car-side"></i> Model:</strong> <%= @car.model %></p>
@@ -18,7 +21,11 @@
           <%= button_to 'Delete', @car, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
         <% end %>
         </p>
-        <%= link_to 'Buy this car', car_orders_path(@car), data: {turbo_method: :post}, class: "btn btn-secondary mt-4 d-grid gap-2"%>
+        <% if @car.sold %>
+          <button  class="btn btn-lg btn-success" disabled>Sold</button>
+        <% else %>
+          <%= link_to 'Buy this car', car_orders_path(@car), data: {turbo_method: :post}, class: "btn btn-secondary mt-4 d-grid gap-2"%>
+        <% end %>
       </div>
     </div>
 </div>
