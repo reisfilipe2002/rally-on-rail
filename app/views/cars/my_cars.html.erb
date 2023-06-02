@@ -1,12 +1,13 @@
 
 
 <h1 class="text-center p-3">My cars</h1>
-
-
-
   <% @cars.each do |car| %>
     <div class="card-product my-3">
-      <%= render "shared/photo", locals:{photo: car.photo} %>
+      <% if car.photo.attached? %>
+        <%= cl_image_tag car.photo.key, class:"card-img-top w-50"  %>
+      <% else %>
+        <%= image_tag "NoImage.png", class: "card-img-top w-50" %>
+      <% end %>
       <div class="card-product-infos">
         <p><strong><i class="fa-solid fa-copyright"></i> Brand:</strong> <%= car.brand %></p>
         <p><strong><i class="fa-solid fa-car-side"></i> Model:</strong> <%= car.model %></p>
