@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :first_name, presence: true, uniqueness: true, length: { minimum: 2 }
-  validates :last_name, presence: true, uniqueness: true, length: { minimum: 2 }
+  validates :first_name, presence: true, length: { minimum: 2 }
+  validates :last_name, presence: true, length: { minimum: 2 }
 end

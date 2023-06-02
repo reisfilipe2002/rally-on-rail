@@ -15,7 +15,7 @@ require "faker"
     password: Faker::Internet.password(min_length: 8) # with a password
   )
 end
-Car.destroy_all
+
 10.times do
   car = Car.new( # create 10 cars
     brand: Faker::Vehicle.make, # with a brand

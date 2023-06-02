@@ -1,0 +1,5 @@
+      <% if locals[:photo].attached? %>
+        <%= cl_image_tag locals[:photo].key  %>
+      <% else %>
+        <%= image_tag "https://source.unsplash.com/1600x900/?car", class: "card-img-top" %>
+      <% end %>
